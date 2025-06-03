@@ -2,7 +2,7 @@ import ContactForm from './ContactForm';
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-20 md:py-32 bg-hueneu-white">
+    <section id="contact" className="py-20 md:py-32 bg-hueneu-secondary">
       <div className="container mx-auto px-6">
         <div className="text-center mb-12 md:mb-16">
           <h2 id="contact-form-heading-main" className="text-4xl md:text-5xl font-poppins text-hueneu-primary mb-4">

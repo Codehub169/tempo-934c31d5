@@ -34,7 +34,7 @@ const StorySection = () => {
   }, []);
 
   return (
-    <section id="story" className="py-20 md:py-32 bg-hueneu-light-gray relative overflow-hidden">
+    <section id="story" className="py-20 md:py-32 bg-hueneu-secondary relative overflow-hidden">
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-4xl md:text-5xl font-poppins text-hueneu-primary mb-8">
           The hueneu Story
@@ -42,11 +42,11 @@ const StorySection = () => {
         <div className="max-w-3xl mx-auto space-y-6 font-sans text-hueneu-dark-gray text-lg leading-relaxed">
           <p>
             <span className="font-bold text-hueneu-accent">hue</span> (n.) 
-            — a spectrum of creative color bursts, the vibrant spark of an idea, the unexpected detail that delights.
+            	  a spectrum of creative color bursts, the vibrant spark of an idea, the unexpected detail that delights.
           </p>
           <p>
             <span className="font-bold text-hueneu-primary/80">neu</span> (adj.) 
-            — a grounding neutrality, the calm canvas upon which stories unfold, the quiet confidence of intentional design.
+            	  a grounding neutrality, the calm canvas upon which stories unfold, the quiet confidence of intentional design.
           </p>
           <p className="pt-4">
             Together, they form <span className="font-poppins text-xl text-hueneu-primary">hueneu</span>: a space where vivid imagination meets thoughtful restraint. We believe in designs that whisper loud stories, balancing expressive hues with serene neutrality. It's about finding that perfect harmony, that quiet boldness that leaves a lasting impression.
@@ -82,7 +82,7 @@ const StorySection = () => {
             }`}
             aria-hidden="true"
           >
-            ✨
+            	
           </span>
         </div>
         <p 
