@@ -1,3 +1,5 @@
+'use client';
+
 import AnimatedLogo from './AnimatedLogo';
 import ScrollIndicator from './ScrollIndicator';
 
@@ -5,10 +7,7 @@ const HeroSection = () => {
   return (
     <section 
       id="hero"
-      // Full viewport height, flex column, items centered, justify center
-      // Padding for spacing, text centered
-      // Background color from theme (e.g., bg-secondary)
-      className="min-h-screen flex flex-col items-center justify-center relative text-center p-6 bg-secondary text-neutral-dark overflow-hidden"
+      className="min-h-screen flex flex-col items-center justify-center relative text-center p-6 bg-hueneu-secondary text-hueneu-dark-gray overflow-hidden"
     >
       {/* Animated Logo Component */}
       <div className="mb-8 md:mb-10">
@@ -17,16 +16,28 @@ const HeroSection = () => {
 
       {/* Tagline */}
       <h1 
-        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading text-primary mb-3 md:mb-4 transition-opacity duration-1000 ease-in opacity-0 animate-fadeInUp"
-        style={{ animationDelay: '0.5s', animationFillMode: 'forwards' }}
+        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-poppins text-hueneu-primary mb-3 md:mb-4 opacity-0"
+        style={{
+          animationName: 'fadeInUp',
+          animationDuration: '1000ms',
+          animationTimingFunction: 'ease-in',
+          animationDelay: '0.5s', 
+          animationFillMode: 'forwards'
+        }}
       >
         Where stories find their aesthetic.
       </h1>
 
       {/* Subtext */}
       <p 
-        className="text-lg sm:text-xl md:text-2xl font-sans text-neutral-dark max-w-xl md:max-w-2xl mx-auto mb-12 md:mb-16 transition-opacity duration-1000 ease-in opacity-0 animate-fadeInUp"
-        style={{ animationDelay: '1s', animationFillMode: 'forwards' }}
+        className="text-lg sm:text-xl md:text-2xl font-sans text-hueneu-dark-gray max-w-xl md:max-w-2xl mx-auto mb-12 md:mb-16 opacity-0"
+        style={{
+          animationName: 'fadeInUp',
+          animationDuration: '1000ms',
+          animationTimingFunction: 'ease-in',
+          animationDelay: '1s', 
+          animationFillMode: 'forwards'
+        }}
       >
         Designs that whisper loud stories.
       </p>
@@ -47,9 +58,6 @@ const HeroSection = () => {
             opacity: 1;
             transform: translateY(0);
           }
-        }
-        .animate-fadeInUp {
-          animation-name: fadeInUp;
         }
       `}</style>
     </section>
