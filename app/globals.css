@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-secondary text-neutral-dark antialiased;
+  font-family: var(--font-inter);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-poppins);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for a more refined look */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #E0D9D0; /* Corresponds to theme's 'secondary' color */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #A0A0A0; /* Corresponds to theme's 'primary' color */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8c8c8c; /* Slightly darker primary for hover */
+}
+
+/* Themed text selection */
+::selection {
+  background-color: #FF6B6B; /* Corresponds to theme's 'accent' color */
+  color: #FFFFFF; /* Corresponds to theme's 'neutral-white' color */
+}
