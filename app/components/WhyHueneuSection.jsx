@@ -50,7 +50,7 @@ const WhyHueneuSection = () => {
   }, []); // Empty dependency array means this runs once on mount and cleans up on unmount
 
   return (
-    <section id="why-hueneu" className="py-20 md:py-32 bg-hueneu-primary/5">
+    <section id="why-hueneu" className="py-20 md:py-32 bg-hueneu-light-gray">
       <div ref={sectionRef} className="container mx-auto px-6 text-center">
         <h2 className="text-4xl md:text-5xl font-poppins text-hueneu-primary mb-12 md:mb-16">
           Why hueneu?

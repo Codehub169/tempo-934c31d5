@@ -84,7 +84,7 @@ const ServiceCard = ({ title, description, icon, index }) => {
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-20 md:py-32 bg-hueneu-secondary/30">
+    <section id="services" className="py-20 md:py-32 bg-hueneu-secondary">
       <div className="container mx-auto px-6 text-center">
         <h2 className="text-4xl md:text-5xl font-poppins text-hueneu-primary mb-6">
           What We Do
