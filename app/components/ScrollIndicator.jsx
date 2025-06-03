@@ -13,14 +13,26 @@ const ScrollIndicator = () => {
     return () => clearTimeout(timer);
   }, []);
 
+  const handleScroll = () => {
+    const storySection = document.getElementById('story');
+    if (storySection) {
+      storySection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div 
+      onClick={handleScroll}
+      onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') handleScroll(); }}
+      role="button"
+      tabIndex={isVisible ? 0 : -1}
       className={[
         'w-8 h-12 md:w-10 md:h-14',
         'transition-opacity duration-1000 ease-in',
+        'cursor-pointer',
         isVisible ? 'opacity-100' : 'opacity-0'
       ].join(' ')}
-      aria-hidden="true" // Decorative element
+      aria-hidden="true" // Still decorative, but interactive
     >
       {/* Simple animated arrow using SVG and Tailwind animation */}
       {/* The animation is a subtle bounce */}

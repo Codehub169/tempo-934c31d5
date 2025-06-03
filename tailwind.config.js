@@ -22,19 +22,15 @@ module.exports = {
         poppins: ['Poppins', 'sans-serif'],
       },
       animation: {
-        'logo-reveal': 'logoReveal 2s ease-out forwards', // Example, actual animation to be defined in CSS
-        'scroll-indicate': 'scrollIndicate 1.5s infinite ease-in-out' // Example for scroll indicator
+        'fade-in-up': 'fadeInUp 1s ease-in forwards',
+        // Note: 'animate-bounce' used by ScrollIndicator is a default Tailwind animation.
+        // 'logo-reveal' and 'scroll-indicate' animations were removed as components now use inline transitions or default Tailwind animations.
       },
       keyframes: {
-        logoReveal: {
-          // Example keyframes, to be customized
+        fadeInUp: {
           '0%': { opacity: '0', transform: 'translateY(20px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
-        scrollIndicate: {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(10px)' },
-        }
       }
     },
   },

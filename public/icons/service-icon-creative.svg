@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+  <title>Creative Projects Icon</title>
+  <!-- Lightbulb shape -->
+  <path d="M32 40a12 12 0 0 0 12-12c0-8-12-20-12-20s-12 12-12 20a12 12 0 0 0 12 12z"/>
+  <!-- Filament -->
+  <path d="M30 30l4 4m-4 0l4-4"/>
+  <!-- Base of the bulb -->
+  <line x1="26" y1="40" x2="38" y2="40"/>
+  <line x1="28" y1="44" x2="36" y2="44"/>
+  <line x1="30" y1="48" x2="34" y2="48"/>
+</svg>
