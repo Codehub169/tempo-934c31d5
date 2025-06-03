@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 body {
-  @apply bg-secondary text-neutral-dark antialiased;
+  @apply bg-hueneu-secondary text-hueneu-dark-gray antialiased;
   font-family: var(--font-inter);
 }
 
@@ -21,20 +21,21 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #E0D9D0; /* Corresponds to theme's 'secondary' color */
+  background: theme('colors.hueneu-secondary');
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #A0A0A0; /* Corresponds to theme's 'primary' color */
+  background: theme('colors.hueneu-primary');
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #8c8c8c; /* Slightly darker primary for hover */
+  /* Slightly darker/desaturated primary for hover, using opacity */
+  background: theme('colors.hueneu-primary/80'); 
 }
 
 /* Themed text selection */
 ::selection {
-  background-color: #FF6B6B; /* Corresponds to theme's 'accent' color */
-  color: #FFFFFF; /* Corresponds to theme's 'neutral-white' color */
+  background-color: theme('colors.hueneu-accent');
+  color: theme('colors.hueneu-white');
 }

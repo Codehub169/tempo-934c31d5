@@ -14,44 +14,52 @@ const poeticLines = [
 const WhyHueneuSection = () => {
   const sectionRef = useRef(null);
   const [visibleLines, setVisibleLines] = useState(0);
+  const timeoutsRef = useRef([]); // To store timeout IDs for cleanup
 
   useEffect(() => {
+    const currentSectionRef = sectionRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           poeticLines.forEach((_, index) => {
-            setTimeout(() => {
+            const timeoutId = setTimeout(() => {
               setVisibleLines((prev) => prev + 1);
             }, index * 700); // Staggered appearance
+            timeoutsRef.current.push(timeoutId);
           });
-          observer.unobserve(entry.target);
+          if (entry.target) {
+            observer.unobserve(entry.target);
+          }
         }
       },
       { threshold: 0.4 }
     );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+    if (currentSectionRef) {
+      observer.observe(currentSectionRef);
     }
 
     return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
+      if (currentSectionRef) {
+        observer.unobserve(currentSectionRef);
       }
+      // Clear any pending timeouts when the component unmounts or effect re-runs
+      timeoutsRef.current.forEach(clearTimeout);
+      timeoutsRef.current = [];
     };
-  }, []);
+  }, []); // Empty dependency array means this runs once on mount and cleans up on unmount
 
   return (
-    <section id="why-hueneu" className="py-20 md:py-32 bg-primary/5">
+    <section id="why-hueneu" className="py-20 md:py-32 bg-hueneu-primary/5">
       <div ref={sectionRef} className="container mx-auto px-6 text-center">
-        <h2 className="text-4xl md:text-5xl font-heading text-primary mb-12 md:mb-16">
+        <h2 className="text-4xl md:text-5xl font-poppins text-hueneu-primary mb-12 md:mb-16">
           Why hueneu?
         </h2>
         <div className="max-w-2xl mx-auto space-y-6 md:space-y-8">
           {poeticLines.map((line, index) => (
             <p 
               key={index} 
-              className={`font-sans text-xl md:text-2xl text-neutral-dark leading-relaxed transition-all duration-1000 ease-in-out ${
+              className={`font-sans text-xl md:text-2xl text-hueneu-dark-gray leading-relaxed transition-all duration-1000 ease-in-out ${
                 index < visibleLines ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-5'
               }`}
               style={{ transitionDelay: `${index * 100}ms` }} // slight additional delay for smoothness

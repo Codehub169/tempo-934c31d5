@@ -42,6 +42,7 @@ const ContactForm = () => {
         setResponseMessage(result.message || 'Something went wrong. Please try again.');
       }
     } catch (error) {
+      console.error('Form submission error:', error);
       setStatus('error');
       setResponseMessage('An unexpected error occurred. Please try again.');
     }
@@ -50,14 +51,15 @@ const ContactForm = () => {
   return (
     <form 
       onSubmit={handleSubmit} 
-      className="w-full max-w-xl mx-auto p-8 md:p-10 bg-secondary/50 shadow-lg rounded-lg border border-neutral-light/30 backdrop-blur-sm"
-      aria-labelledby="contact-form-heading"
+      className="w-full max-w-xl mx-auto bg-hueneu-white p-8 md:p-10 shadow-xl rounded-lg border border-hueneu-light-gray/50"
+      aria-labelledby="contact-form-heading-main" // Assuming ContactSection provides the main heading
     >
-      <h2 id="contact-form-heading" className="text-3xl font-heading text-primary mb-8 text-center">Let's design your story</h2>
+      {/* The heading "Let's design your story" is expected to be part of the parent ContactSection */}
+      {/* This form component focuses solely on the form fields and submission logic */}
       
       <div className="space-y-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-neutral-dark mb-1">Full Name</label>
+          <label htmlFor="name" className="block text-sm font-medium text-hueneu-dark-gray mb-1 font-inter">Full Name</label>
           <input
             type="text"
             name="name"
@@ -65,13 +67,14 @@ const ContactForm = () => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 bg-white/70 border border-neutral-light/50 rounded-md shadow-sm placeholder-neutral focus:ring-accent focus:border-accent focus:outline-none transition-colors duration-300 text-neutral-dark"
+            className="w-full px-4 py-3 bg-hueneu-secondary/30 border border-hueneu-light-gray/70 rounded-md shadow-sm placeholder-hueneu-primary/70 focus:ring-hueneu-accent focus:border-hueneu-accent focus:outline-none transition-colors duration-300 text-hueneu-dark-gray font-inter"
             placeholder="Your Name"
+            autoComplete="name"
           />
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-neutral-dark mb-1">Email Address</label>
+          <label htmlFor="email" className="block text-sm font-medium text-hueneu-dark-gray mb-1 font-inter">Email Address</label>
           <input
             type="email"
             name="email"
@@ -79,13 +82,14 @@ const ContactForm = () => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 bg-white/70 border border-neutral-light/50 rounded-md shadow-sm placeholder-neutral focus:ring-accent focus:border-accent focus:outline-none transition-colors duration-300 text-neutral-dark"
+            className="w-full px-4 py-3 bg-hueneu-secondary/30 border border-hueneu-light-gray/70 rounded-md shadow-sm placeholder-hueneu-primary/70 focus:ring-hueneu-accent focus:border-hueneu-accent focus:outline-none transition-colors duration-300 text-hueneu-dark-gray font-inter"
             placeholder="your.email@example.com"
+            autoComplete="email"
           />
         </div>
 
         <div>
-          <label htmlFor="subject" className="block text-sm font-medium text-neutral-dark mb-1">Subject</label>
+          <label htmlFor="subject" className="block text-sm font-medium text-hueneu-dark-gray mb-1 font-inter">Subject</label>
           <input
             type="text"
             name="subject"
@@ -93,13 +97,14 @@ const ContactForm = () => {
             value={formData.subject}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 bg-white/70 border border-neutral-light/50 rounded-md shadow-sm placeholder-neutral focus:ring-accent focus:border-accent focus:outline-none transition-colors duration-300 text-neutral-dark"
+            className="w-full px-4 py-3 bg-hueneu-secondary/30 border border-hueneu-light-gray/70 rounded-md shadow-sm placeholder-hueneu-primary/70 focus:ring-hueneu-accent focus:border-hueneu-accent focus:outline-none transition-colors duration-300 text-hueneu-dark-gray font-inter"
             placeholder="What's your story about?"
+            autoComplete="off" 
           />
         </div>
 
         <div>
-          <label htmlFor="message" className="block text-sm font-medium text-neutral-dark mb-1">Your Message</label>
+          <label htmlFor="message" className="block text-sm font-medium text-hueneu-dark-gray mb-1 font-inter">Your Message</label>
           <textarea
             name="message"
             id="message"
@@ -107,7 +112,7 @@ const ContactForm = () => {
             value={formData.message}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 bg-white/70 border border-neutral-light/50 rounded-md shadow-sm placeholder-neutral focus:ring-accent focus:border-accent focus:outline-none transition-colors duration-300 text-neutral-dark resize-none"
+            className="w-full px-4 py-3 bg-hueneu-secondary/30 border border-hueneu-light-gray/70 rounded-md shadow-sm placeholder-hueneu-primary/70 focus:ring-hueneu-accent focus:border-hueneu-accent focus:outline-none transition-colors duration-300 text-hueneu-dark-gray font-inter resize-none"
             placeholder="Tell us a bit about your project or idea..."
           />
         </div>
@@ -117,19 +122,19 @@ const ContactForm = () => {
         <button 
           type="submit"
           disabled={status === 'loading'}
-          className="px-8 py-3 bg-accent text-white font-medium rounded-md shadow-md hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-secondary transition-all duration-300 ease-in-out transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="px-8 py-3.5 bg-hueneu-accent text-hueneu-white font-poppins font-medium rounded-md shadow-md hover:bg-opacity-85 focus:outline-none focus:ring-2 focus:ring-hueneu-accent focus:ring-offset-2 focus:ring-offset-hueneu-white transition-all duration-300 ease-in-out transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {status === 'loading' ? 'Sending...' : 'Send Your Note'}
         </button>
       </div>
 
       {responseMessage && (
-        <p className={`mt-6 text-center text-sm ${status === 'success' ? 'text-success-dark' : 'text-error-dark'}`}>
+        <p className={`mt-6 text-center text-sm font-inter ${status === 'success' ? 'text-hueneu-success' : 'text-hueneu-error'}`}>
           {responseMessage}
         </p>
       )}
-      <p className="mt-8 text-center text-sm text-neutral-dark">
-        Or find us on Instagram: <a href="https://instagram.com/hueneu_" target="_blank" rel="noopener noreferrer" className="text-accent hover:underline">@hueneu_</a>
+      <p className="mt-8 text-center text-sm text-hueneu-dark-gray/80 font-inter">
+        Or find us on Instagram: <a href="https://instagram.com/hueneu_" target="_blank" rel="noopener noreferrer" className="text-hueneu-accent hover:underline font-medium">@hueneu_</a>
       </p>
     </form>
   );
